@@ -1,0 +1,13 @@
+
+.navLogo {
+  width: 7rem;
+  height: auto;
+}
+.navTitle {
+  color: rgb(255, 255, 255, 0.5);
+  margin-left: 1rem;
+}
+.navCont {
+  margin-left: 15px;
+  margin-right: 15px;
+}
