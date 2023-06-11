@@ -3,10 +3,7 @@
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(./assets/space-game-background-with-landscape-planet_107791-1700.avif);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-image: url(./assets/space-game-background-with-landscape-planet_107791-1700-transformed.jpeg);
 }
 .commingSoonCont {
   display: flex;

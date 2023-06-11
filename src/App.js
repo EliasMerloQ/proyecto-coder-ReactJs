@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navbar from "./components/navbar/Navbar";
-import CommingSoon from "./assets/images-removebg-preview.png"
+import DealsTable from "./components/itemList/itemList.jsx"
 import "./AppStyles.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <div className="bakgroundLanding">
-        <img src={CommingSoon} className="commingSoon"></img>
+        <DealsTable/>
       </div>
     </div>
   );
