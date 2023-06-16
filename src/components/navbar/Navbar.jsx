@@ -5,8 +5,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import LucyLogo from "../../assets/LucyLogo.png"
-import Cart from "../cartButtom/CartWidget"
-import "./NavbarStyle.css"
+import Cart from "../cartButtom/CartWidget";
+import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
@@ -18,8 +18,8 @@ function Menu() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Games</Nav.Link>
+            <Link to={'/'} ><Nav.Link href="#home">Home</Nav.Link></Link>
+            <Link to={'/juegos'}><Nav.Link href="#link">Games</Nav.Link></Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">xbox</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
