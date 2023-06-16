@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DealCard from '../cardItem/cardItem';
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
-import { Container, Row, Button, Col, Stack } from 'react-bootstrap';
+import { Container, Row, Button, Col, Stack } from 
+'react-bootstrap';
 
 function DealsTable() {
   const [deals, setDeals] = useState([]);

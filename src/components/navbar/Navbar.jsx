@@ -20,15 +20,12 @@ function Menu() {
           <Nav className="m-auto">
             <Link to={'/'} ><Nav.Link href="#home">Home</Nav.Link></Link>
             <Link to={'/juegos'}><Nav.Link href="#link">Games</Nav.Link></Link>
-            <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">xbox</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Ps
+            <NavDropdown title="Descuentos" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1" className='d-flex justify-content-center'>0% - 30%</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> 30% - 60%
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Steam</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Epic Games
+              <NavDropdown.Item href="#action/3.3" className='d-flex justify-content-center'>60% - 99%</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.4" className='d-flex justify-content-center'>100%!
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>

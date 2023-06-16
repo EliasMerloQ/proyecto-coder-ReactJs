@@ -6,7 +6,7 @@ function DealCard({ deal }) {
   const savingsPercentage = deal.savings.slice(0, 3);
   return (
     <Card className='card_container'>
-      <Link to={`/productos/${deal.id}`}>
+      <Link to={`/juegos/${deal.gameID}`}>
         <div className='hero-image-container'>
           <Card.Img className='image' variant="top" src={deal.thumb} alt={deal.title} />
         </div>

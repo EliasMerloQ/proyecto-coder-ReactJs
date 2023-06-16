@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+import { Game } from '../../funciones/funciones';
 
-function IdView({deal}){
+function IdView(){
+  const{juego, setJuego} = useState(null)
+  const params = useParams()
+  useEffect(()=>{
+    Game(params.id, setJuego)
+  },[])
   return(
-    <div className=''>
+    <>
+    {juego != null ? (
       <div>
-        
+       <h1>juego con id {params.id}</h1>
+       <h2> {juego.title} </h2>
       </div>
-    </div>
+    ) : ('No existe juego')}
+    </>
   )
 }
 export default IdView;
