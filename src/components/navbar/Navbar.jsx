@@ -30,7 +30,7 @@ function Menu() {
     
                <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 7)}>gog.com</NavLink></NavDropdown.Item>
 
-              <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 7)}>Origin</NavLink></NavDropdown.Item>
+              <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 8)}>Origin</NavLink></NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav.Link href="#link"> <Cart/> </Nav.Link>
