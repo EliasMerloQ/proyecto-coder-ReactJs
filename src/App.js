@@ -6,6 +6,8 @@ import "./Styles/AppStyles.scss";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ItemListContainer from './components/itemListContainer/itemListContainer';
 import IdView from './components/idView/idView';
+import CategoryContainer from './components/categoyContainer/categoryContainer'
+import {ROUTES} from './constant/Routes'
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/juegos' element={<ItemListContainer/>}/>
-         <Route path='/juegos/:id' element={<IdView/>} />
+          <Route path='/juegos/:id' element={<IdView/>} />
+          <Route path={ROUTES.CATEGORY} element={<CategoryContainer/>} />
         </Routes>
       </BrowserRouter>
     </div>

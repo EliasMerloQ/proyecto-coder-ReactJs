@@ -6,7 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import LucyLogo from "../../assets/LucyLogo.png"
 import Cart from "../cartButtom/CartWidget";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import {ROUTES} from '../../constant/Routes'
 
 function Menu() {
   return (
@@ -20,17 +21,20 @@ function Menu() {
           <Nav className="m-auto">
             <Link to={'/'} ><Nav.Link href="#home">Home</Nav.Link></Link>
             <Link to={'/juegos'}><Nav.Link href="#link">Games</Nav.Link></Link>
-            <NavDropdown title="Descuentos" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1" className='d-flex justify-content-center'>0% - 30%</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> 30% - 60%
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3" className='d-flex justify-content-center'>60% - 99%</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4" className='d-flex justify-content-center'>100%!
-              </NavDropdown.Item>
+            <NavDropdown title="Plataformas" id="basic-nav-dropdown">
+
+             <NavDropdown.Item className='d-flex justify-content-center'> <NavLink to={ROUTES.CATEGORY.replace(':categoryId', 1)}>Steam</NavLink></NavDropdown.Item>
+
+              <NavLink to={ROUTES.CATEGORY.replace(':categoryId', 25)}><NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> Epic Games
+              </NavDropdown.Item></NavLink>
+    
+               <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 7)}>gog.com</NavLink></NavDropdown.Item>
+
+              <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 7)}>Origin</NavLink></NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav.Link href="#link"> <Cart/> </Nav.Link>
-                    <Form className="d-flex">
+          <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
