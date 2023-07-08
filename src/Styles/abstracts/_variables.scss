@@ -1,8 +1,12 @@
+@import url('https: //fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600&display=swap');
+
 @font-face {
   font-family: LoomatticRegular;
-  src: url(../../assets/LoomatticRegular-EaxaW.ttf);
+  src: url(../../assets/LucyMedia/LoomatticRegular-EaxaW.ttf);
 }
 
 :root{
   --font-portal: LoomatticRegular;
+  --font-inconsolata: 'Inconsolata',
+    monospace;
 }

@@ -1,0 +1,22 @@
+
+.cartWidget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  .btnCart {
+    background: none;
+    position: relative;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .number {
+    margin-top: 6px;
+    font-family: var(--font-inconsolata);
+    color: white;
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+  }
+}

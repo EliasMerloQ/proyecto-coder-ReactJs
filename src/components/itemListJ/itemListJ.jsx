@@ -22,7 +22,9 @@ function ItemListJ() {
   }, []);
 
   const handleNextPage = () => {
-    setCurrentPage(currentPage + 1);
+    if (currentPage < Math.ceil(data.length / dataPerPage) - 1){
+      setCurrentPage(currentPage + 1);
+    }
   };
   const handleAfterPage = () => {
     if(currentPage > 0){
@@ -57,8 +59,8 @@ function ItemListJ() {
               ))}
           </Row>
           <Stack direction="horizontal" gap={2} className='d-flex justify-content-center mt-4'>
-            <Button onClick={handleAfterPage}><BsFillCaretLeftFill/></Button>
-            <Button onClick={handleNextPage}> <BsFillCaretRightFill/></Button>
+            <Button onClick={handleAfterPage} disabled={currentPage === 0}><BsFillCaretLeftFill/></Button>
+            <Button onClick={handleNextPage} disabled={currentPage >= Math.ceil(data.length / dataPerPage) - 1}> <BsFillCaretRightFill/></Button>
           </Stack>
         </Container>
       )}
