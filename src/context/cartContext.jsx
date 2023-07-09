@@ -7,6 +7,11 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
+  //Consulto si existe el producto en el carrito por id
+  const isInCart = (itemID) =>{
+    return cartItems.find((item) => item.id === itemID);
+  }
+
   // Agregar un item al carrito
   const addItemToCart = (item) => {
     setCartItems([...cartItems, item]);
@@ -41,13 +46,17 @@ const CartProvider = ({ children }) => {
     clearCart,
     getTotalItemCount,
     getCartSubtotal,
+    isInCart,
   };
   // Imprimir el estado actual del carrito
   console.log('Cart Items:', cartItems);
 
   // Imprimir la cantidad total de items en el carrito
   console.log('Total Items in Cart:', getTotalItemCount());
+
+  console.log('Valor total' ,getCartSubtotal())
   
+  console.log()
   return (
     <CartContext.Provider value={cartContextValue}>
       {children}

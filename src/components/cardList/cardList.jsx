@@ -8,10 +8,10 @@ function CardList({ game }) {
     <Card className='card_container'>
       <Link to={`/juegos/${game.id}`}>
         <div className='hero-image-container'>
-          <Card.Img className='image' variant="top" src={image} alt={game.nombre} />
+          <Card.Img className='image' variant="top" src={image} alt={game.name} />
         </div>
         <Card.Body>
-          <Card.Title className='titleCard'>{game.nombre}</Card.Title>
+          <Card.Title className='titleCard'>{game.name}</Card.Title>
           <div className='d-flex justify-content-end'>
             {game.sale === false ? (
               <Card.Text className='textCard2'>${game.price}

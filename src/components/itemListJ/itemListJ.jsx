@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import CardList from '../cardList/cardList';
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 import { Container, Row, Button, Col, Stack } from 'react-bootstrap';
+import getGames from '../../utils/firebase';
 
-import products from '../../assets/data/products.json'; // Importar el archivo JSON
 
 function ItemListJ() {
   const [data, setData] = useState([]);
@@ -16,9 +16,11 @@ function ItemListJ() {
       await new Promise((resolve) => setTimeout(resolve, 700));
       setIsLoading(false);
     };
-
     simulateLoading();
-    setData(products); // Asignar los datos del archivo JSON al estado `data`
+
+    getGames().then((game) => {
+      setData(game)
+  }); // Asignar los datos del archivo JSON al estado `data`
   }, []);
 
   const handleNextPage = () => {

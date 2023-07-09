@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import products from '../../assets/data/products.json';
 import ItemDetail from '../itemDetail/itemDetail';
+import getGames from '../../utils/firebase';
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
@@ -9,17 +9,21 @@ function ItemDetailContainer() {
   const { id } = useParams();
 
   useEffect(() => {
-    const simulateLoading = async () => {
+    const fetchGame = async () => {
       setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 800));
 
-      // Buscar el juego con la ID correspondiente en el array de productos
-      const selectedGame = products.find((game) => game.id === parseInt(id));
-      setProducto(selectedGame);
+      try {
+        const games = await getGames();
+        const selectedGame = games.find((game) => game.id === id);
+        setProducto(selectedGame);
+      } catch (error) {
+        console.log('Error fetching game:', error);
+      }
 
       setIsLoading(false);
     };
-    simulateLoading();
+
+    fetchGame();
   }, [id]);
 
   return (
@@ -36,3 +40,4 @@ function ItemDetailContainer() {
 }
 
 export default ItemDetailContainer;
+
