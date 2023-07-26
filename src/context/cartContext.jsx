@@ -56,7 +56,6 @@ const CartProvider = ({ children }) => {
 
   console.log('Valor total' ,getCartSubtotal())
   
-  console.log()
   return (
     <CartContext.Provider value={cartContextValue}>
       {children}

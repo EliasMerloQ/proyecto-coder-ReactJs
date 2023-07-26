@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getFirestore, collection, getDocs} from "firebase/firestore";
+import {getFirestore, collection, getDocs, query, where, addDoc} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,4 +24,47 @@ const getGames = async () => {
   return snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()}));
 }
 
-export default getGames;
+const getCategories = async () => {
+  try{
+    const db = getFirestore();
+    const categoriesSnapshot = await getDocs(collection(db, 'categories'));
+    const categoriesData =  categoriesSnapshot.docs.map((doc)=> ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return categoriesData;
+  } catch(error){
+    console.error('Error fetching categories:', error);
+    throw error;
+  }
+}
+
+const getGamesByCategory = async (category) => {
+  try{
+    const db = getFirestore();
+    const q = query(collection(db, 'games'), where('categories', 'array-contains', category));
+    const categoriesSnapshot = await getDocs(q);
+    const categoriesData =  categoriesSnapshot.docs.map((doc)=> ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return categoriesData;
+  } catch(error){
+    console.error('Error fetching categories:', error);
+    throw error;
+  }
+}
+
+const createOrder = async (orderData) => {
+  try {
+    const db = getFirestore();
+    const orderRef = await addDoc(collection(db, 'orders'), orderData);
+    const orderId = orderRef.id;
+    return orderId;
+  } catch(error) {
+    console.error('Error creating order', error);
+    throw error;
+  }
+}
+
+export {getGames, getCategories, getGamesByCategory, createOrder};

@@ -2,10 +2,10 @@ import React from 'react';
 import ItemListJ from '../itemListJ/itemListJ'
 
 
-const ItemListContainer = () => {
+const ItemListContainer = (filteredItems) => {
   return (
     <div className="backgroundLanding">
-      <ItemListJ/>
+      <ItemListJ items={filteredItems} />
     </div>
   );
 };

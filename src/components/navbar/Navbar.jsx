@@ -12,8 +12,8 @@ function Menu() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container className='navCont' fluid>
-        <img src={LucyLogo} className="navLogo"  alt="" />
-        <Navbar.Brand href="#home" className='navTitle'><h1>Lucy</h1></Navbar.Brand>
+        <Link to="/"><img src={LucyLogo} className="navLogo"  alt="" /></Link>
+        <Link></Link><Navbar.Brand href="#home" className='navTitle'><Link to="/"><h1>Lucy</h1></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="m-auto">

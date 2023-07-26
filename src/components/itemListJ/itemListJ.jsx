@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import CardList from '../cardList/cardList';
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 import { Container, Row, Button, Col, Stack } from 'react-bootstrap';
-import getGames from '../../utils/firebase';
+import {getCategories, getGames, getGamesByCategory} from '../../utils/firebase';
+import { useParams } from 'react-router-dom';
 
 
 function ItemListJ() {
+  const categoryName = useParams()
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,12 +18,19 @@ function ItemListJ() {
       await new Promise((resolve) => setTimeout(resolve, 700));
       setIsLoading(false);
     };
-    simulateLoading();
 
-    getGames().then((game) => {
-      setData(game)
-  }); // Asignar los datos del archivo JSON al estado `data`
-  }, []);
+    const fetchData = async() => {
+      try{
+        simulateLoading();
+        const games = await getGames();
+        const filteredGames = categoryName.categoryId ? await getGamesByCategory(categoryName.categoryId) : games;
+        setData(filteredGames)
+      } catch (error) {
+        prompt.error('Error recopilando los datos', error);
+      }
+    }
+    fetchData();
+  }, [categoryName]);
 
   const handleNextPage = () => {
     if (currentPage < Math.ceil(data.length / dataPerPage) - 1){

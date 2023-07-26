@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../itemDetail/itemDetail';
-import getGames from '../../utils/firebase';
+import {getGames} from '../../utils/firebase';
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  const notify = () => toast("Wow so easy!");
   return (
     <>
       <div className='homeP'>
@@ -14,7 +15,7 @@ const Home = () => {
             <p>En Lucy, cada rincón está lleno de misterio y asombro. Explora nuestra galaxia de juegos y déjate llevar por las estrellas que brillan con intensidad. Aquí encontrarás una selección estelar de títulos espaciales que te harán volar más allá de las fronteras de tu imaginación felina.</p>
           </section>
           <section className='linkProductos'>
-            <Link to={'/juegos'} className='linkbtn'><button>Ver productos</button></Link>
+            <Link to={'/juegos'} className='linkbtn'><button >Ver productos</button></Link>
           </section>
         </div>
           <div className='homeDos img-uno'>

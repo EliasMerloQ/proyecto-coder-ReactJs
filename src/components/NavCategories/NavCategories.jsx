@@ -10,12 +10,12 @@ function NavCategories(){
       <NavLink to={ROUTES.CATEGORY.replace(':categoryId', "Multijugador")}><NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> Multijugador
       </NavDropdown.Item></NavLink>
 
-      <NavLink to={ROUTES.CATEGORY.replace(':categoryId', 25)}><NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> Epic Games
+      <NavLink to={ROUTES.CATEGORY.replace(':categoryId', 'Un jugador')}><NavDropdown.Item href="#action/3.2" className='d-flex justify-content-center'> Un jugador
       </NavDropdown.Item></NavLink>
     
-      <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 7)}>gog.com</NavLink></NavDropdown.Item>
+      <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 'Terror')}> Terror </NavLink></NavDropdown.Item>
 
-      <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 8)}>Origin</NavLink></NavDropdown.Item>
+      <NavDropdown.Item className='d-flex justify-content-center'><NavLink to={ROUTES.CATEGORY.replace(':categoryId', 'Espacio')}> Espacio </NavLink></NavDropdown.Item>
       </NavDropdown>
   )
 }
