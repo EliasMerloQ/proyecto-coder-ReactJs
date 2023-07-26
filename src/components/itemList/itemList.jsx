@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import CardList from '../cardList/cardList';
 import { BsFillCaretRightFill, BsFillCaretLeftFill } from "react-icons/bs";
 import { Container, Row, Button, Col, Stack } from 'react-bootstrap';
-import {getCategories, getGames, getGamesByCategory} from '../../utils/firebase';
+import {getGames, getGamesByCategory} from '../../utils/firebase';
 import { useParams } from 'react-router-dom';
+import Spinner from 'react-bootstrap/Spinner';
 
 
-function ItemListJ() {
+function ItemList() {
   const categoryName = useParams()
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -53,7 +54,9 @@ function ItemListJ() {
       {isLoading ? (
         <Container>
           <Row className='pt-4 boxItems'>
-            <div>Cargando...</div>
+            <div className='loadingContainer'>
+              <Spinner  style={{ width: "10rem", height: "10rem" }} animation="border" variant="primary"/>
+            </div>
           </Row>
           <Stack direction="horizontal" gap={2} className='d-flex justify-content-center mt-4'>
             <Button onClick={handleAfterPage}><BsFillCaretLeftFill/></Button>
@@ -79,4 +82,4 @@ function ItemListJ() {
   );
 }
 
-export default ItemListJ;
+export default ItemList;

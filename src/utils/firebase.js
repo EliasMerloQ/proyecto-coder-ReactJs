@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {getFirestore, collection, getDocs, query, where, addDoc} from "firebase/firestore";
+import {getFirestore, collection, getDocs, query, where, addDoc, getDoc, doc} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,6 +14,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+const getGame = async (id) => {
+  const db = getFirestore();
+  const itemRef = doc(db, "games", id);
+  const snapshot = await getDoc(itemRef);
+  return { id: snapshot.id, ...snapshot.data() };
+}
 
 const getGames = async () => {
   const db = getFirestore(); //Referencia mi base de datos, consulto
@@ -67,4 +74,4 @@ const createOrder = async (orderData) => {
   }
 }
 
-export {getGames, getCategories, getGamesByCategory, createOrder};
+export {getGame, getGames, getCategories, getGamesByCategory, createOrder};

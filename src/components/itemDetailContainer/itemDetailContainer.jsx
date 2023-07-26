@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemDetail from '../itemDetail/itemDetail';
-import {getGames} from '../../utils/firebase';
+import {getGame} from '../../utils/firebase';
 
 function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
@@ -13,8 +13,7 @@ function ItemDetailContainer() {
       setIsLoading(true);
 
       try {
-        const games = await getGames();
-        const selectedGame = games.find((game) => game.id === id);
+        const selectedGame = await getGame(id)
         setProducto(selectedGame);
       } catch (error) {
         console.log('Error fetching game:', error);
